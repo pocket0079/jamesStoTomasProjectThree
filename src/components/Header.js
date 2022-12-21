@@ -1,6 +1,6 @@
 const Header = () => {
     return (
-        <h1>Lucas' Schedule</h1>
+        <h1>Lucas' Visual Schedule</h1>
 
 //Visual Schedule for Kids and Parents
 
