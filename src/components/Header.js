@@ -1,4 +1,8 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
 const Header = () => {
+
     return (
         <h1>Lucas' Visual Schedule</h1>
 
@@ -20,16 +24,6 @@ const Header = () => {
 //Stretch goals
 //add option to add tasks for multiple children
 //add task based on Date and/or Time
-
-
-
-
-
-
-
-
-
-
     )
 }
 
