@@ -1,6 +1,10 @@
 const Form = (props) => {
+
     return (
-        <button onClick={props.addedTask}>Add task</button>
+        <form className="formSection">
+            <input type="text" onChange={props.formInput} />
+            <input type="submit" onClick={props.addedTask} value="Add Task" />
+        </form>
     )
 }
 

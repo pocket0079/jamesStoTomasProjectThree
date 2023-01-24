@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 const Header = () => {
 
@@ -16,7 +15,7 @@ const Header = () => {
 // on submit, take value of task and store it in Firebase
 
 //take object of tasks from Firebase, loop through and display tasks on page.
-        //i also want to incorporate displaying images (stored locally) to represent the task. if no image related, just display text. 
+        //i also want to incorporate displaying images to represent the task. if no image related, just display text. 
         //if that idea does not work out, use task as search query in the unsplash api
 
 //when task is completed, user can click done and task will be removed from the page
