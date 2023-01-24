@@ -7,10 +7,10 @@ const TaskContainer = ({firebaseTasks}) => {
         //create a reference to the database
         const db = getDatabase(firebase);
 
-        //within the db, we're specifically going to create a reference to the nested book boject which needs to be removed.
+        //within the db, we're specifically going to create a reference to the nested task boject which needs to be removed.
         const dbRef = ref(db, `/${taskId}`)
 
-        //call the remove method and pass it the specific reference to the selected book
+        //call the remove method and pass it the specific reference to the selected task
         remove(dbRef);
     }
     return (
@@ -19,8 +19,8 @@ const TaskContainer = ({firebaseTasks}) => {
                 <ul className='taskUl'>
             {
                     firebaseTasks.map((taskItem) => {
-                        return <div className="imgContainer">
-                            <li key={taskItem.id}>
+                        return<li key={taskItem.id}>
+                                <div className="imgContainer">
                             {
                                 taskItem.task.apiData !== '' ? <img src={taskItem.task.apiData} alt={taskItem.task.alt} /> 
                                 : null
@@ -28,8 +28,8 @@ const TaskContainer = ({firebaseTasks}) => {
                             <p>{taskItem.task.task}</p>
                             <button 
                             onClick={() => { taskDone(taskItem.id)}}>Done</button>
+                                </div>
                             </li>
-                        </div>
                     })
         }
             </ul>
