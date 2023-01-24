@@ -1,7 +1,7 @@
 import firebase from './firebase'
 import { ref, getDatabase, remove} from 'firebase/database'
 
-const TaskContainer = ({firebaseTasks, toDoPics}) => {
+const TaskContainer = ({firebaseTasks}) => {
 
     const taskDone = (taskId) => {
         //create a reference to the database
@@ -19,10 +19,9 @@ const TaskContainer = ({firebaseTasks, toDoPics}) => {
                 <ul>
             {
                     firebaseTasks.map((taskItem) => {
-                        console.log(taskItem)
                         return <li key={taskItem.id}>
                             {
-                                taskItem.task.apiData != '' ? <img src={taskItem.task.apiData} alt={taskItem.task.alt} /> 
+                                taskItem.task.apiData !== '' ? <img src={taskItem.task.apiData} alt={taskItem.task.alt} /> 
                                 : null
                             }
                             <p>{taskItem.task.task}</p>

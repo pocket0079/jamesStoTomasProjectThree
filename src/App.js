@@ -11,9 +11,6 @@ import TaskContainer from './components/TaskContainer';
 
 function App() {
 
-    //initialize state to hold data from unsplash api
-    const [toDoPics, setToDoPics] = useState([]);
-
     //init state to store user input 
     const [userTaskInput, setUserTaskInput] = useState('')
 
@@ -51,18 +48,13 @@ function App() {
         })
     },[])
 
-
-
     //get value of text input 
     const handleChange = (event) => {
         setUserTaskInput(event.target.value)
     }
 
-    //define an event listener that runs once user clicks submit button, takes user query and makes a request to the unsplash api
-
-    const handleClick = (event) => {
-        event.preventDefault();
-
+    //use user input to make a request to the unsplash api
+    const apiCall = () => {
         //create reference to db
         const db = getDatabase(firebase);
         const dbRef = ref(db);
@@ -76,20 +68,38 @@ function App() {
                 per_page: 1
             }
         }).then((apiData) => {
-            //save the data in state
-            setToDoPics(apiData.data.results)
 
-            // console.log('app data resuls:', apiData.data.results)
             const taskAndPic = {
                 "task": userTaskInput,
-                "apiData": apiData.data.results[0].urls.small,
-                "alt": apiData.data.results[0].alt_description
+                "apiData": '',
+                "alt": ''
             }
-            
-            //push user input to db
 
-            push(dbRef, taskAndPic);
+            //error handling for undefined search
+            apiData.data.results[0] !== undefined
+                ? taskAndPic.apiData = apiData.data.results[0].urls.small
+
+                : taskAndPic.apiData = 'https://via.placeholder.com/400.png'
+
+            apiData.data.results[0] !== undefined
+                ? taskAndPic.alt = apiData.data.results[0].alt_description
+
+                : taskAndPic.alt = `Placeholder image for ${userTaskInput}`
+
+
+            push(dbRef, taskAndPic)
         });
+    }
+
+    //define an event listener that runs once user clicks submit button, takes user query and makes a request to the unsplash api
+
+    const handleClick = (event) => {
+        event.preventDefault();
+
+        userTaskInput !== ""
+        ? apiCall()
+        : console.log('hi')
+
     }    
     
 return (
@@ -97,7 +107,7 @@ return (
 
     <Header />
     <Form addedTask={handleClick} formInput={handleChange}/>
-    <TaskContainer firebaseTasks={firebaseTasks} toDoPics={toDoPics}/>
+    <TaskContainer firebaseTasks={firebaseTasks} />
     </>
 );
 }
