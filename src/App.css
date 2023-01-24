@@ -96,3 +96,7 @@ button :focus,
     border: 2px solid black;
     border-radius: 10px;
 }
+
+.imgContainer {
+    width: 100%;
+}

@@ -19,7 +19,8 @@ const TaskContainer = ({firebaseTasks}) => {
                 <ul className='taskUl'>
             {
                     firebaseTasks.map((taskItem) => {
-                        return <li key={taskItem.id}>
+                        return <div className="imgContainer">
+                            <li key={taskItem.id}>
                             {
                                 taskItem.task.apiData !== '' ? <img src={taskItem.task.apiData} alt={taskItem.task.alt} /> 
                                 : null
@@ -28,6 +29,7 @@ const TaskContainer = ({firebaseTasks}) => {
                             <button 
                             onClick={() => { taskDone(taskItem.id)}}>Done</button>
                             </li>
+                        </div>
                     })
         }
             </ul>

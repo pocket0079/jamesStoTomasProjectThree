@@ -30,6 +30,7 @@ function App() {
             //use val method to parse response into understandable version of our db
             const dbValue = dbResponse.val()
 
+            console.log(dbValue)
             //create an empty array for the tasks
             const arrayOfTasks = []
 
