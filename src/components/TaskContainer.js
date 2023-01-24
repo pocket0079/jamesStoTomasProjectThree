@@ -15,8 +15,8 @@ const TaskContainer = ({firebaseTasks}) => {
     }
     return (
         <section className="taskContainer">
-            <h2>My plan for today</h2>
-                <ul>
+            <h3>Tips: Search for a simple term to represent your activity. </h3>
+                <ul className='taskUl'>
             {
                     firebaseTasks.map((taskItem) => {
                         return <li key={taskItem.id}>

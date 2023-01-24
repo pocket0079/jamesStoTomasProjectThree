@@ -1,7 +1,14 @@
 const Header = () => {
 
     return (
-        <h1>Lucas' Visual Schedule</h1>
+        <header>
+            <h1>My Visual Schedule</h1>
+
+            <h2>Enter your activity and build a visual schedule to help plan and keep track of your day</h2>
+
+        </header>
+
+        
 
 //Visual Schedule for Kids and Parents
 
