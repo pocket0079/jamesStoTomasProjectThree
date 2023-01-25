@@ -99,8 +99,9 @@ function App() {
 
         userTaskInput !== ""
         ? apiCall()
-        : console.log('hi')
+        : alert('Please enter a task!')
 
+        setUserTaskInput("");
     }    
     
 return (
