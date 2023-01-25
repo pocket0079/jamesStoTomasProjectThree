@@ -105,6 +105,7 @@ button:focus {
 .submitButton:hover,
 .submitButton:focus {
     background-color: #89e6ff;
+    transition: 0.3s;
 }
 
 .textInput {
