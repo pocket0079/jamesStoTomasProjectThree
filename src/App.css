@@ -89,11 +89,22 @@ button :focus,
     cursor: pointer;
 }
 
+button:hover,
+button:focus {
+    background-color: #ff5b45;
+    transition: 0.3s;
+}
+
 .submitButton {
-    background-color: #2BB6DB;
+    background-color: #1ccaf9;
     padding: 15px;
     border: 2px solid black;
     border-radius: 10px;
+}
+
+.submitButton:hover,
+.submitButton:focus {
+    background-color: #89e6ff;
 }
 
 .textInput {
