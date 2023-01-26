@@ -24,7 +24,6 @@ function App() {
         const dbRef = ref(db)
 
         //use the onValue module to listen for chages within our db and on page load + whenever changes occur, save the task currently within the db within state
-
         //event listener syntax where we listen to the database, and everytime we hear something, we take the returned response and save it in state
         onValue(dbRef, (dbResponse) => {
             //use val method to parse response into understandable version of our db
@@ -35,14 +34,13 @@ function App() {
 
             //use for in loop to loop through the db object
             for (let propertyKey in dbValue) {
-
                 //push every task within the object to the empty array. map requires unique key and will push both values - property name and property key in the object
                 arrayOfTasks.push({
                     task: dbValue[propertyKey],
                     id: propertyKey
                 });
             }
-
+            
             //take array of taks and save it within state
             setFirebaseTasks(arrayOfTasks)
         })
@@ -86,7 +84,6 @@ function App() {
 
                 : taskAndPic.alt = `Placeholder image for ${userTaskInput}`
 
-
             push(dbRef, taskAndPic)
         });
     }
@@ -100,16 +97,14 @@ function App() {
         ? apiCall()
         : alert('Please enter a task!')
 
-        console.log(event)
         setUserTaskInput("");
     }    
     
 return (
     <>
-
-    <Header />
-    <Form addedTask={handleClick} formInput={handleChange}/>
-    <TaskContainer firebaseTasks={firebaseTasks} />
+        <Header />
+        <Form addedTask={handleClick} formInput={handleChange} text={userTaskInput}/>
+        <TaskContainer firebaseTasks={firebaseTasks} />
     </>
 );
 }
