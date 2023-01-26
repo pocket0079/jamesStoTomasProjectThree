@@ -2,7 +2,9 @@ const Form = (props) => {
 
     return (
         <form className="formSection">
-            <input type="text" onChange={props.formInput}  className="textInput" value={props.text} />
+            <label htmlFor="task">
+            <input type="text"  id="task" onChange={props.formInput}  className="textInput" value={props.text} />
+            </label>
             <input type="submit" onClick={props.addedTask} value="Add Task" className="submitButton" />
         </form>
     )
