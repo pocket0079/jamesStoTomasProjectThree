@@ -117,7 +117,8 @@ button:focus {
 }
 
 .imgContainer,
-img {
+img,
+svg {
     width: 100%;
 }
 
