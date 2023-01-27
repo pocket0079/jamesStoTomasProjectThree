@@ -1,5 +1,6 @@
 import firebase from './firebase'
 import { ref, getDatabase, remove} from 'firebase/database'
+import Smiley from './Smiley'
 
 const TaskContainer = ({firebaseTasks}) => {
 
@@ -22,7 +23,9 @@ const TaskContainer = ({firebaseTasks}) => {
                             return<li key={taskItem.id}>
                                         <div className="imgContainer">
                                             {
-                                                taskItem.task.apiData && <img src={taskItem.task.apiData} alt={taskItem.task.alt} /> 
+                                                taskItem.task.apiData !== '' 
+                                                ?<img src={taskItem.task.apiData} alt={taskItem.task.alt} /> 
+                                                : <Smiley />
                                             }
                                         <p>{taskItem.task.task}</p>
                                         <button onClick={() => { taskDone(taskItem.id)}}>Done</button>

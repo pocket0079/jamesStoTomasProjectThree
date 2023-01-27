@@ -19,6 +19,7 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
     max-width: 1200px;
     width: 90%;
     margin: 0 auto;
+    height: 100vh;
 }
 
 body {
@@ -118,4 +119,13 @@ button:focus {
 .imgContainer,
 img {
     width: 100%;
+}
+
+a {
+    color: black
+}
+
+.footerText {
+    font-size: 1.2rem;
+    text-align: center;
 }

@@ -8,6 +8,7 @@ import { onValue, ref, getDatabase, push } from 'firebase/database'
 import Header from './components/Header';
 import Form from './components/Form'
 import TaskContainer from './components/TaskContainer';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -40,7 +41,7 @@ function App() {
                     id: propertyKey
                 });
             }
-            
+
             //take array of taks and save it within state
             setFirebaseTasks(arrayOfTasks)
         })
@@ -77,7 +78,7 @@ function App() {
             apiData.data.results[0] !== undefined
                 ? taskAndPic.apiData = apiData.data.results[0].urls.small
 
-                : taskAndPic.apiData = 'https://via.placeholder.com/400.png'
+                : taskAndPic.apiData = ''
 
             apiData.data.results[0] !== undefined
                 ? taskAndPic.alt = apiData.data.results[0].alt_description
@@ -105,6 +106,7 @@ return (
         <Header />
         <Form addedTask={handleClick} formInput={handleChange} text={userTaskInput}/>
         <TaskContainer firebaseTasks={firebaseTasks} />
+        <Footer />
     </>
 );
 }
