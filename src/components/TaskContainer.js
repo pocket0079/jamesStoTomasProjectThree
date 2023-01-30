@@ -28,6 +28,7 @@ const TaskContainer = ({firebaseTasks}) => {
                                                 : <Smiley />
                                             }
                                         <p>{taskItem.task.task}</p>
+                                        <p className='timestamp'>{taskItem.task.timestamp}</p>
                                         <button onClick={() => { taskDone(taskItem.id)}}>Done</button>
                                         </div>
                                         </li>

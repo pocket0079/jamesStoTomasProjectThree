@@ -73,6 +73,10 @@ p {
     margin: 20px;
 }
 
+.timestamp {
+    font-size: 0.9rem;
+}
+
 button {
     background-color: #FBA397;
     color: black;
@@ -120,6 +124,10 @@ button:focus {
 img,
 svg {
     width: 100%;
+}
+
+.placeholderImg {
+    width: 400px;
 }
 
 a {

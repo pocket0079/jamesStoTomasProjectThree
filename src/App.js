@@ -71,7 +71,8 @@ function App() {
             const taskAndPic = {
                 "task": userTaskInput,
                 "apiData": '',
-                "alt": ''
+                "alt": '',
+                "timestamp": Date()
             }
 
             //error handling for undefined search
