@@ -1,6 +1,14 @@
 const Header = () => {
+
     return (
-        <h1>Lucas' Schedule</h1>
+        <header>
+            <h1>My Visual Schedule</h1>
+
+            <h2>Enter your activity and build a visual schedule to help plan and keep track of your day</h2>
+
+        </header>
+
+        
 
 //Visual Schedule for Kids and Parents
 
@@ -12,7 +20,7 @@ const Header = () => {
 // on submit, take value of task and store it in Firebase
 
 //take object of tasks from Firebase, loop through and display tasks on page.
-        //i also want to incorporate displaying images (stored locally) to represent the task. if no image related, just display text. 
+        //i also want to incorporate displaying images to represent the task. if no image related, just display text. 
         //if that idea does not work out, use task as search query in the unsplash api
 
 //when task is completed, user can click done and task will be removed from the page
@@ -20,16 +28,6 @@ const Header = () => {
 //Stretch goals
 //add option to add tasks for multiple children
 //add task based on Date and/or Time
-
-
-
-
-
-
-
-
-
-
     )
 }
 
