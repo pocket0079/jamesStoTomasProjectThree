@@ -98,7 +98,6 @@ function App() {
     const handleClick = (event) => {
         event.preventDefault();
 
-        console.log(event.target.parentNode[0])
         userTaskInput !== ""
         ? apiCall()
         : setEmptyString(!emptyString)
