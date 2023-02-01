@@ -18,6 +18,9 @@ function App() {
     //init state to store tasks from firebase
     const [firebaseTasks, setFirebaseTasks] = useState([])
 
+    //init state for error handling
+    const [emptyString, setEmptyString] = useState(false);
+
     //define a side effect that runs once on component load
     useEffect(() => {
         //store our db and create a reference to it
@@ -50,6 +53,7 @@ function App() {
     //get value of text input 
     const handleChange = (event) => {
         setUserTaskInput(event.target.value)
+        setEmptyString(false)
     }
 
     //use user input to make a request to the unsplash api
@@ -91,22 +95,22 @@ function App() {
     }
 
     //define an event listener that runs once user clicks submit button, takes user query and makes a request to the unsplash api
-
     const handleClick = (event) => {
         event.preventDefault();
 
+        console.log(event.target.parentNode[0])
         userTaskInput !== ""
         ? apiCall()
-        : alert('Please enter a task!')
+        : setEmptyString(!emptyString)
 
         setUserTaskInput("");
-    }    
-    
+    }
+
 return (
     <>
         <Header />
-        <Form addedTask={handleClick} formInput={handleChange} text={userTaskInput}/>
-        <TaskContainer firebaseTasks={firebaseTasks} />
+        <Form addedTask={handleClick} formInput={handleChange} text={userTaskInput} error={emptyString} />
+        <TaskContainer firebaseTasks={firebaseTasks} error={emptyString} />
         <Footer />
     </>
 );
